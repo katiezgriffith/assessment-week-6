@@ -4,6 +4,16 @@ const app = express()
 const {bots, playerRecord} = require('./data')
 const {shuffleArray} = require('./utils')
 
+var Rollbar = require("rollbar");
+var rollbar = new Rollbar({
+  accessToken: 'c84e27caa5da4ac084eff745fc5bec70',
+  captureUncaught: true,
+  captureUnhandledRejections: true
+});
+
+// record a generic message and send it to Rollbar
+rollbar.log("Hello world!");
+
 app.use(express.static("public"));
 app.use(express.json())
 
