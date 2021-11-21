@@ -1,14 +1,23 @@
 const {shuffleArray} = require('./utils')
 
-describe('shuffleArray should return an array', () => {
-    let result = shuffleArray([1,2,3,4,5])
-    test('Return Array', () => expect(result).toReturn())
 
-})
+    test('id should match', () => {
+        const obj = {
+        id: '5',
+        name: 'Brobot', 
+        imgAddress: 'https://robohash.org/brobot',
+        health: 95
+    };
+        expect(obj.id).toEqual('5')
 
-describe('the array has j in it', () => {
-    let result = shuffleArray("Array")
-    test("Contains j", () => expect(result).toContain('j'))
-   
-})
+    });
+
+     
+    test('name in shuffleArray', () => {
+         expect("Crowbar").toContain("bar")
+     })
+
+
+
+
 
