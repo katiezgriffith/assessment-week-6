@@ -28,7 +28,9 @@ app.get("/js", (req, res) => {
 
 app.get('/api/robots', (req, res) => {
     try {
+        rollbar.info('someone tapped the api')
         res.status(200).send(botsArr)
+        
     } catch (error) {
         console.log('ERROR GETTING BOTS', error)
         res.sendStatus(400)
@@ -40,6 +42,7 @@ app.get('/api/robots/five', (req, res) => {
         let shuffled = shuffleArray(bots)
         let choices = shuffled.slice(0, 5)
         let compDuo = shuffled.slice(6, 8)
+        rollbar.critical('someone tryin to steal yo robuts')
         res.status(200).send({choices, compDuo})
     } catch (error) {
         console.log('ERROR GETTING FIVE BOTS', error)
@@ -49,6 +52,7 @@ app.get('/api/robots/five', (req, res) => {
 
 app.post('/api/duel', (req, res) => {
     try {
+        rollbar.warning('someone messing around!')
         // getting the duos from the front end
         let {compDuo, playerDuo} = req.body
 
@@ -80,6 +84,7 @@ app.post('/api/duel', (req, res) => {
 
 app.get('/api/player', (req, res) => {
     try {
+        rollbar.warning('Told ya to slow ya roll!')
         res.status(200).send(playerRecord)
     } catch (error) {
         console.log('ERROR GETTING PLAYER STATS', error)
